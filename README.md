@@ -1,118 +1,168 @@
-<<<<<<< HEAD
-# Jekyll-Bootstrap
+# feature-blog-jekyll [![Code Climate](https://codeclimate.com/github/lavkumarv/feature-blog-jekyll/badges/gpa.svg)](https://codeclimate.com/github/lavkumarv/feature-blog-jekyll) <a href="https://codeclimate.com/github/lavkumarv/feature-blog-jekyll"><img src="https://codeclimate.com/github/lavkumarv/feature-blog-jekyll/badges/issue_count.svg" /></a>
 
-The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
+Feature Blog is a minimalist, beautiful, responsive theme for Jekyll. It is built using the Bootstrap 3.
 
-## Usage
+Home Page:
 
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+![home](home.jpg "home")
 
-## Version
+## Features
 
-0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
+* Twitter Bootstrap 3
+* Option to set featured image & video in post
+* Pagination support
+* Disqus comments if you choose to enable
+* MailChip Integration for subscription
+* Tags for [Open Graph](https://developers.facebook.com/docs/opengraph/), [Twitter Cards](https://dev.twitter.com/docs/cards) and Schema.org for a better social sharing experience
+* Support for recent post
+* SEO Enabled theme
+* Beautifully crafted 404 page
+* Custom categories and tags pages
+* Ajax based search
+* Sitemap for search engines
+* Google Fonts
+* Font awesome icons
+* Easy to configure and customize
 
-**NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
-However, the actual API has not changed at all.
-You might want to run 0.3.0 in a branch to make sure you are ok with the theme design changes.
+## Basic Setup for a new Jekyll site
 
-## Milestones
+1. [Install Jekyll](http://jekyllrb.com) if you haven't already.
+2. Fork the [Feature Blog Theme](https://github.com/lavkumarv/feature-blog-jekyll/fork)
+3. Clone the repo you just forked.
+4. Edit `_config.yml` to personalize your site.
+5. Check out the sample posts in `_posts` to see examples for pulling in large feature images, assigning categories and tags, and other YAML data.
+6. Read the documentation below for further customization pointers and documentation.
 
-[0.4.0](https://github.com/plusjade/jekyll-bootstrap/milestones/v%200.4.0) - next release [ETA 03/29/2015]
+---
 
-### GOALS
+## Setup for an Existing Jekyll site
 
-* No open PRs against master branch.
-* Squash some bugs.
-* Add some new features (low-hanging fruit).
-* Establish social media presence.
+`_config.yml` file:
 
+``` yaml
+# Basic settings
+description:  This is personal blog.
+baseurl: "/"
+url: "https://lavkumarv.github.io"
+twitter_username: LAV_K_V
+github_username:  lavkumarv
+include: ['_pages']
 
-### Bugs
+# Build settings
+markdown:    kramdown
+highlighter: pygments
+lsi:         false
+excerpt_separator: "\n\n"
+gems:
+  - jekyll-feed
+  - jekyll-paginate
+exclude:
+  - Gemfile
+  - Gemfile.lock
 
-|Bug |Description
-|------|---------------
-|[#86](https://github.com/plusjade/jekyll-bootstrap/issues/86)  |&#x2611; Facebook Comments
-|[#113](https://github.com/plusjade/jekyll-bootstrap/issues/113)|&#x2611; ASSET_PATH w/ page & post
-|[#144](https://github.com/plusjade/jekyll-bootstrap/issues/144)|&#x2610; BASE_PATH w/ FQDN
-|[#227](https://github.com/plusjade/jekyll-bootstrap/issues/227)|&#x2611; Redundant JB/setup
+# pagination
+gems: [jekyll-paginate]
+paginate: 5
+paginate_path: "/page:num/"
 
-### Features
+# Enable comments
+comments: true
 
-|Bug |Description
-|------|---------------
-|[#98](https://github.com/plusjade/jekyll-bootstrap/issues/98)  |&#x2611; GIST Integration
-|[#244](https://github.com/plusjade/jekyll-bootstrap/issues/244)|&#x2611; JB/file_exists Helper
-|[#42](https://github.com/plusjade/jekyll-bootstrap/issues/42)  |&#x2611; Sort collections of Pages / Posts
-|[#84](https://github.com/plusjade/jekyll-bootstrap/issues/84)  |&#x2610; Detecting production mode
+# Markdown settings
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
 
-### TODOS
+  coderay:
+    coderay_wrap:              div
+    coderay_line_numbers:      inline
+    coderay_line_number_start: 1
+    coderay_tab_width:         4
+    coderay_bold_every:        10
+    coderay_css:               style
+---
+```
+---
+Global Configuration( global.yml):
+``` yaml
+# Site Settings
+title: 'Lav Vishwakarma'
+description: 'My personal Blog'
+url: 'https://lavkumarv.github.io'
 
-Review existing pull requests against plusjake/jekyll-bootstrap:master. Merge or close each.
+# Admin Settings
+admin_name: 'Lav Vishwakarma'
+admin_email: 'lav.kumar.dev@gmail.com'
 
-* Create twitter account. Add link / icon on jekyllbootstrap.com.
-* Create blog posts under plusjade/gh-pages, expose on jekyllbootstrap.com, feed to twitter account.
-* Announce state of project, announce roadmap(s), announce new versions as they’re released.
+#####################################################################
+#About Page
+author_name: 'Lav Kumar Vishwakarma'
+author_profession: 'Full Stack Developer'
+author_description: 'A computer science graduate student at University Institute of Technology,
+RGPV with great interest in Software development and coding efficient software.</br></br>
+My 3+ years of experience in web technologies like J2EE/Jersey, Node.js, Angular.js, c#, MongoDB, MySQL,
+Linux with Appointy and TechShanty provides me with a rich experience in coding and maintaining
+ large scalable applications.</br></br>
+Working at Appointy as Software Developer Intern, I was involved in Full stack development of a SAAS
+application which is used by 65,000+ business worldwide. '
+author_image: '/images/author.jpg'
+
+# social proiles
+facebook: 'https://www.facebook.com/lavkumarv'
+twitter: 'https://twitter.com/LAV_K_V'
+linkedin: 'https://www.linkedin.com/in/lav-vishwakarma/'
+instagram: 'https://www.instagram.com/vishwakarmalav/'
+github: 'https://github.com/lavkumarv'
+google-plus: 'https://plus.google.com/+LAVKUMARVISHWAKARMAdev'
+stackoverflow: 'http://stackoverflow.com/users/4703818/lav-kumar-vishwakarma'
+#####################################################################
+---
+```
+Navigation Bar(nav.yml):
+``` yaml
+main:
+    - { url: '/about', text: 'About' }
+---
+```
+
+## Post Formate:
+
+Image Post:
+``` json
+layout: blog
+title: 'Sample post to check the functionality'
+date: 2017-01-24 12:11:34
+categories: blog
+tags: code
+image: '/images/default.jpg'
+lead_text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+```
+Video Post:
+``` json
+layout: blog
+title: 'Sample post to check the functionality'
+date: 2017-01-24 12:11:34
+categories: blog
+tags: code
+image: '/images/default.jpg'
+lead_text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+```
+## Built With
+
+* [Bootstrap](http://getbootstrap.com/) - The css framework used
 
 ## Contributing
 
+Contributions are welcome!. Feel free to add a new feature or fix a bug.
 
-To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
-This is very important as it allows me to accept your pull request without having to publish a public version release.
+## Authors
 
-Small, atomic Features, bugs, etc.
-Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.
-Please rebase as often as possible when working.
-Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
-
-For Big Features or major API extensions/edits:
-This is the one case where I'll accept pull-requests based off the master branch.
-This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
-Translation : it might take a bit longer so please be patient! (but sincerely thank you).
-
-**Jekyll-Bootstrap Documentation Website.**
-
-The documentation website at <http://jekyllbootstrap.com> is maintained at https://github.com/plusjade/jekyllbootstrap.com
-
+* **Lav Kumar Vishwakarma** - *Initial work* - [lavkumarv](https://github.com/lavkumarv)
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
-=======
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/xxss0903/xxss0903.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/xxss0903/xxss0903.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
->>>>>>> 76f7ede0df1c9a642f43952a4236e8d4d05694ff
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
