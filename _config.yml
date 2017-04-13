@@ -2,8 +2,8 @@
 description:  This is personal blog.
 baseurl: "/"
 url: "https://xxss0903.github.io" 
-twitter_username: LAV_K_V
-github_username:  lavkumarv
+twitter_username: xxss0903
+github_username:  xxss0903
 include: ['_pages']
 
 # Build settings
