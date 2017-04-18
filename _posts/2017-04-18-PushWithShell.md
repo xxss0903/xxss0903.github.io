@@ -15,12 +15,14 @@ image: ''
 echo -n "push当前项目到Git:(y/n)"
 read is_current
 push_folder=""
-if [[ $is_current="y" ]]; then
+if [[ $is_current = "n" ]]; then
+	echo -n "请输入项目路径："
+	read $push_folder
+elif [ $is_current = "y" ]
 	push_folder=$(pwd)
 	echo -n $push_folder
 else
-	echo -n "请输入项目路径："
-	read $push_folder
+	push_folder=$(pwd)
 fi
 
 echo -n "push路径#" $push_folder
@@ -28,7 +30,7 @@ dir=$(ls -al $push_folder | awk '/^d/ {print $NF}')
 is_git=0
 for file in ${dir}/*; do
     temp_file=`basename $file`
-    if [[ $temp_file=".git" ]]; then
+    if [[ $temp_file = ".git" ]]; then
 	echo -n "当前文件夹已初始化仓库"
 	is_git=1
 	# 退出循环
@@ -40,7 +42,7 @@ done
 echo -n "输入commit内容:"
 read $commit_content
 
-if [ $is_git=1 ]; then
+if [ $is_git = 1 ]; then
 	echo -n "当前文件夹已初始化仓库"
 	# 添加，push当前项目
 	git add .
@@ -58,7 +60,7 @@ fi
 分支固定是origin的master，所以要确保在使用之前已经有远程仓库关联了
 
 ```
-遇到的坑主要是shell中进行if判断的时候左右的[ ]和内容要分开
+遇到的坑主要是shell中进行if判断的时候左右的[ ]和内容要分开，比较的 = 号两边也记得要分开
 ```
 
 
